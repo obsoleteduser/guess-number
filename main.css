@@ -42,6 +42,8 @@ input{
 .result{
     display: none;
     padding: 1rem;
-    background-color: darkslateblue;
-    color: white;
+    font-size: 2rem;
+    background-color: gold;
+    border-radius: 3px;
+    color: black;
 }
