@@ -1,4 +1,4 @@
-const input = document.querySelector('input')
+const guessInput = document.querySelector('#input')
 const range = document.querySelector('input[type=range]')
 const submit = document.querySelector('button')
 const display = document.querySelector('.range')
@@ -6,7 +6,7 @@ const result = document.querySelector('.result')
 
 
 const generateNumber = (range) => {
-    return Math.floor(Math.random() * range)
+    return Math.floor(Math.random() * range + 1)
 }
 
 range.addEventListener('input', () => {
@@ -15,9 +15,12 @@ range.addEventListener('input', () => {
 
 
 submit.addEventListener('click', () => {
-    let randomNumber = 5
-    +input.value === randomNumber
-        ? (document.body.style.backgroundColor = 'green', alert('You won dude!'))
+    result.style.display = 'block';
+    let randomNumber = generateNumber(range.value)
+    Number(guessInput.value) > randomNumber ? result.innerHTML = `Too High! :(`
+    : result.innerHTML = 'Too Low! :('
+    Number(guessInput.value) === randomNumber 
+        ? (document.body.style.backgroundColor = 'green', alert('You won dude!'), result.innerHTML = "Congratulations!")
         : (document.body.style.backgroundColor = 'red', alert(`Wrong!\n Actually it was \n ${randomNumber}`));
     })
 

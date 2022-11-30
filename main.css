@@ -40,6 +40,7 @@ input{
 }
 
 .result{
+    display: none;
     padding: 1rem;
     background-color: darkslateblue;
     color: white;
